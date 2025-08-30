@@ -1,0 +1,468 @@
+
+<!-- saved from url=(0030)https://nitsep.pk/bank-challan -->
+<html><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/content/location/location.js" id="nimlmejbmnecnaghgmbahmbaddhjbecg"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/extend-native-history-api.js"></script><script src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css" media="print">
+    @page {
+        size: landscape;
+        margin: 2cm;
+    }
+    @media print {
+   .print_btn { display: none !important; }
+}
+    </style>
+    <style type="text/css">
+    .challan table,
+    .challan tr,
+    .challan td {
+        border: 1px solid black;
+    }
+    
+    table td {
+        font-size: 13px;
+    }
+    
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+    
+    .landscape {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+    
+    @page {
+        size: landscape;
+        margin: 2cm;
+    }
+    </style>
+    <script>
+    var css = '@page { size: landscape; }',
+        head = document.head || document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+    style.type = 'text/css';
+    style.media = 'print';
+    if(style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style);
+    window.print();
+    </script><style type="text/css" media="print">@page { size: landscape; }</style>
+<script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://nimlmejbmnecnaghgmbahmbaddhjbecg/executors/traffic.js"></script></head>
+
+<body onload="window.print();" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6Im5pbWxtZWpibW5lY25hZ2hnbWJhaG1iYWRkaGpiZWNnIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjI2Iiwic2NvcmUiOjIwMDI2fV0=" __processed_aeddbdf5-3ba9-4145-a2ce-4b78d8831ac8__="true">
+    <br>
+    <a class="print_btn" href="https://nitsep.pk/student-admission-status" style="background-color: #018651;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+    "><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+    <div class="page" id="landscape" style="padding-top: 20px;border:0px solid;width: 35cm;height: 23cm;" bis_skin_checked="1">
+        <br> Note: The Fee can be deposited at any branch of Bank Alfalah, Meezan Bank, Askari Bank, MCB, Standard Chartered, Silk Bank, or UBL during the banking hours.
+        <br>
+        <br>
+        <table id="challan" border="0" style="width:100%;height:100%;padding-bottom:10%">
+            <tbody><tr>
+                <td style="width:30%;border:2px solid black;">
+                    <table width="100%" height="100%" border="0" cellspacing="0">
+                        <tbody><tr style="background-color: #dee2e6;">
+                            <td colspan="2" style="width: 60%;text-align:right;"> <img id="logo" src="./bank-challan_files/smartlogo.png" alt="logo" style="vertical-align:middle;float:left;height: 50px;margin-left: 20px;">
+                                <br>
+                                <br>
+                                </td>
+                            <td style="vertical-align:top;"><img src="./bank-challan_files/1link.png" alt="HBL" style="float:right;vertical-align:top;height: 50px;margin-right: 20px;"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <br>
+                                <center>Bank Copy</center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <center><b>1 Bill Invoice / Voucher
+                                <br>
+                                10002720552523500060</b>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Dated : <u>23-08-2025&nbsp;&nbsp;&nbsp;&nbsp;</u> <span style="float:right;">Challan No.<u><b> 868456</b></u> </span></td>
+                        </tr>
+
+     
+                        <tr>
+                            <td colspan="3"><font size="2">Name : </font><u>   Zohaib Madni</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Application No. : 245736</font><u>   </u>
+                            <hr>
+                            <p style="color: red;"><b>The Fee can be deposited at any branch of Bank Alfalah, Meezan Bank, Askari Bank, MCB, Standard Chartered, Silk&nbsp;Bank,&nbsp;or&nbsp;UBL.</b></p>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border-bottom:1px solid;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Subject : <u> Course Fee </u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">CNIC : <u>  3230459680519</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Mobile No : <u>  03285564295</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Session : </font><u>   2025-26</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table align="center" cellspacing="0" class="challan" width="100%">
+                                    
+                                    <tbody><tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Sr.# </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Course Title </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Rs.</b></td>
+                                    </tr>
+                                    
+                                                                                                            <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>Full Stack Web Engineer in 1 Year </b></td>
+                
+                                        <td style="text-align:center;border:1px solid black ;font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>
+                                   5400                                   <b></b></b></td>      
+                                    </tr>
+
+                                                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>2 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>3 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>4 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                                   
+                                   
+                                   
+                                    <tr>
+                                        <td></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black ;"><b>Total Rs.</b></td>
+                                        <td style="text-align:center;border:1px solid black ;"><b> 5400</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif" colspan="3"><u>Total (Rs. in Words):&nbsp;&nbsp;&nbsp;Five Thousand Four Hundred  Only.</u></td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td colspan="3">
+                            <ul>
+                                <li style="color: red;font-weight: bold"> The monthly course fee for each program is 450 PKR, payable annually as a lump sum of 5400 PKR (450*12).</li>
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <span style="float:left">Officer____________________ </span> <span style="float:right">CASHIER ____________________</span> </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+                <td style="width:30%;border:2px solid black;">
+                    <table width="100%" height="100%" border="0" cellspacing="0">
+                        <tbody><tr style="background-color: #dee2e6;">
+                            <td colspan="2" style="width: 60%;text-align:right;"> <img id="logo" src="./bank-challan_files/smartlogo.png" alt="logo" style="vertical-align:middle;float:left;height: 50px;margin-left: 20px;">
+                                <br>
+                                <br>
+                                </td>
+                            <td style="vertical-align:top;"><img src="./bank-challan_files/1link.png" alt="HBL" style="float:right;vertical-align:top;height: 50px;margin-right: 20px;"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <br>
+                                <center>Depositor's Copy</center>
+                            </td>
+                        </tr>
+                          <tr>
+                            <td colspan="3">
+                                <center><b>1 Bill Invoice / Voucher
+                                <br>
+                                10002720552523500060</b>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Dated : <u>23-08-2025&nbsp;&nbsp;&nbsp;&nbsp;</u> <span style="float:right;">Challan No.<u><b> 868456</b></u> </span></td>
+                        </tr>
+
+     
+                        <tr>
+                            <td colspan="3"><font size="2">Name : </font><u>   Zohaib Madni</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Application No. : 245736</font><u>   </u>
+                            <hr>
+                            <p style="color: red;"><b>The Fee can be deposited at any branch of Bank Alfalah, Meezan Bank, Askari Bank, MCB, Standard Chartered, Silk&nbsp;Bank,&nbsp;or&nbsp;UBL.</b></p>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border-bottom:1px solid;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Subject : <u> Course Fee </u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">CNIC : <u>  3230459680519</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Mobile No : <u>  03285564295</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Session : </font><u>   2025-26</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table align="center" cellspacing="0" class="challan" width="100%">
+                                    
+                                    <tbody><tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Sr.# </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Course Title </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Rs.</b></td>
+                                    </tr>
+                                    
+                                                                                                            <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>Full Stack Web Engineer in 1 Year </b></td>
+                
+                                        <td style="text-align:center;border:1px solid black ;font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>
+                                   5400                                   <b></b></b></td>      
+                                    </tr>
+
+                                                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>2 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>3 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>4 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                                   
+                                   
+                                   
+                                    <tr>
+                                        <td></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black ;"><b>Total Rs.</b></td>
+                                        <td style="text-align:center;border:1px solid black ;"><b> 5400</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif" colspan="3"><u>Total (Rs. in Words):&nbsp;&nbsp;&nbsp;Five Thousand Four Hundred  Only.</u></td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td colspan="3">
+                            <ul>
+                                <li style="color: red;font-weight: bold"> The monthly course fee for each program is 450 PKR, payable annually as a lump sum of 5400 PKR (450*12).</li>
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <span style="float:left">Officer____________________ </span> <span style="float:right">CASHIER ____________________</span> </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+                <td style="width:30%;border:2px solid black;">
+                    <table width="100%" height="100%" border="0" cellspacing="0">
+                        <tbody><tr style="background-color: #dee2e6;">
+                            <td colspan="2" style="width: 60%;text-align:right;"> <img id="logo" src="./bank-challan_files/smartlogo.png" alt="logo" style="vertical-align:middle;float:left;height: 50px;margin-left: 20px;">
+                                <br>
+                                <br>
+                                </td>
+                            <td style="vertical-align:top;"><img src="./bank-challan_files/1link.png" alt="HBL" style="float:right;vertical-align:top;height: 50px;margin-right: 20px;"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <br>
+                                <center>Institute's Copy</center>
+                            </td>
+                        </tr>
+                          <tr>
+                            <td colspan="3">
+                                <center><b>1 Bill Invoice / Voucher
+                                <br>
+                                10002720552523500060</b>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Dated : <u>23-08-2025&nbsp;&nbsp;&nbsp;&nbsp;</u> <span style="float:right;">Challan No.<u><b> 868456</b></u> </span></td>
+                        </tr>
+
+     
+                        <tr>
+                            <td colspan="3"><font size="2">Name : </font><u>   Zohaib Madni</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Application No. : 245736</font><u>   </u>
+                            <hr>
+                            <p style="color: red;"><b>The Fee can be deposited at any branch of Bank Alfalah, Meezan Bank, Askari Bank, MCB, Standard Chartered, Silk&nbsp;Bank,&nbsp;or&nbsp;UBL.</b></p>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border-bottom:1px solid;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Subject : <u> Course Fee </u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">CNIC : <u>  3230459680519</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Mobile No : <u>  03285564295</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font size="2">Session : </font><u>   2025-26</u></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table align="center" cellspacing="0" class="challan" width="100%">
+                                    
+                                    <tbody><tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Sr.# </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Course Title </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:12px; font-family:Arial, Helvetica, sans-serif"><b>Rs.</b></td>
+                                    </tr>
+                                    
+                                                                                                            <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>Full Stack Web Engineer in 1 Year </b></td>
+                
+                                        <td style="text-align:center;border:1px solid black ;font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>
+                                   5400                                   <b></b></b></td>      
+                                    </tr>
+
+                                                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>1 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>2 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>3 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                               <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif"><b>4 </b></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif">&nbsp; </td>
+                                        <td style="text-align:center;border:1px solid black ;font-size:8px; font-family:Arial, Helvetica, sans-serif">&nbsp;</td>
+                               </tr>
+
+                                   
+                                   
+                                   
+                                    <tr>
+                                        <td></td>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black ;"><b>Total Rs.</b></td>
+                                        <td style="text-align:center;border:1px solid black ;"><b> 5400</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:4px;padding-right:4px;border:1px solid black; font-size:10px; font-family:Arial, Helvetica, sans-serif" colspan="3"><u>Total (Rs. in Words):&nbsp;&nbsp;&nbsp;Five Thousand Four Hundred  Only.</u></td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td colspan="3">
+                            <ul>
+                                <li style="color: red;font-weight: bold"> The monthly course fee for each program is 450 PKR, payable annually as a lump sum of 5400 PKR (450*12).</li>
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <span style="float:left">Officer____________________ </span> <span style="float:right">CASHIER ____________________</span> </td>
+                        </tr>
+                    </tbody></table>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td colspan="3">
+                            <ul>
+                                <li style="color: red;font-weight: bold"> Once the challan is paid, your admission will be confirmed, and you will be notified about your classes and granted access to the Learning Portal. For any queries or support, please contact&nbsp;our&nbsp;helpline.</li>
+
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"> <span style="float:left">Officer____________________ </span> <span style="float:right">CASHIER ____________________</span> </td>
+                        </tr>
+                    </tbody></table>
+                
+            
+        
+    </div>
+
+
+
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Manager</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* Container for all semesters */
+#semestersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* space between semester cards */
+}
+
+/* Semester card */
+.semester-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Flex layout for semester header (name + buttons) */
+.semester-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+/* Semester name */
+.semester-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Action buttons */
+.semester-actions button {
+    margin-left: 8px;
+    padding: 6px 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.update-btn { background-color: #4CAF50; color: white; }
+.delete-btn { background-color: #f44336; color: white; }
+
+/* Subject input row */
+.subject-input {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.subject-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.subject-input button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Subject list */
+.subject-list {
+    margin-top: 12px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.subject-list li {
+    padding: 6px 10px;
+    background-color: #f5f5f5;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.subject-list li:hover {
+    background-color: #e0e0e0;
+}
+
+</style>
+</head>
+<body>
+<header class="main-header">
+    <h1 class="home-link" onclick="goHome()">Course Manager</h1>
+</header>
+
+<main class="container">
+    <section class="add-section">
+        <h2>Add New Semester</h2>
+        <input type="text" id="semesterName" placeholder="Enter semester name">
+        <button onclick="addSemester()">Add Semester</button>
+    </section>
+
+    <section class="semester-list">
+        <h2>Semesters</h2>
+        <div id="semestersContainer">
+            <!-- Semesters will be dynamically loaded here -->
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subject Page</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    
+    /* -------------------- Global -------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header .subject-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header button:hover {
+    background-color: #2563eb;
+}
+
+/* -------------------- Main Container -------------------- */
+.subject-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* -------------------- Section Card -------------------- */
+.section-card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.section-card h2 {
+    margin-top: 0;
+    color: #1e3a8a;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* -------------------- File Table -------------------- */
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.file-table th, .file-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.file-table th {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: 500;
+}
+
+.file-table tr:hover {
+    background-color: #f0f4ff;
+}
+
+.file-table input[type="file"] {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* -------------------- Section Buttons -------------------- */
+.section-buttons {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.section-buttons button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.section-buttons button:hover {
+    background-color: #3b82f6;
+}
+
+/* -------------------- Files Display -------------------- */
+.files-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.files-list .file-card {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(50% - 15px);
+    word-break: break-word;
+    transition: 0.2s;
+}
+
+.files-list .file-card:hover {
+    background-color: #e0ebff;
+}
+
+.files-list .file-card a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 500;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.files-list .file-card button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.files-list .file-card button:hover {
+    background-color: #dc2626;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+    header .subject-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .files-list .file-card {
+        width: 100%;
+    }
+
+    .file-table th, .file-table td {
+        font-size: 14px;
+        padding: 10px 6px;
+    }
+
+    .section-buttons button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+/* ------------------ Buttons ------------------ */
+.section-buttons {
+    margin-bottom: 15px;
+}
+
+.section-buttons button {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.section-buttons button:hover {
+    opacity: 0.85;
+}
+
+.section-buttons button:nth-child(1) {
+    background-color: #16a34a;
+    color: #fff;
+}
+
+.section-buttons button:nth-child(2) {
+    background-color: #f59e0b;
+    color: #fff;
+}
+
+.section-buttons button:nth-child(3) {
+    background-color: #dc2626;
+    color: #fff;
+}
+
+/* ------------------ Files List ------------------ */
+.files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.files-list h4 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #1e3a8a;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eef2ff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.file-item:hover {
+    background: #dbeafe;
+}
+
+.file-item a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 500;
+}
+
+.file-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 768px){
+    .section-card {
+        padding: 15px;
+    }
+
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .file-item a {
+        margin-top: 5px;
+    }
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+   
+ <header class="main-header">
+    <h1 class="home-link" onclick="goHome()">Course Manager</h1>
+     <div class="subject-header">
+        <h1 id="subjectTitle">Subject Name</h1>
+        <!-- <button id="editSubjectBtn">Edit Name</button> -->
+    </div>
+</header>
+
+<main class="subject-container">
+
+    <!-- Theory Section -->
+    <section class="section-card">
+        <h2>Theory</h2>
+        <table class="file-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Upload File</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Notes</td>
+                    <td><input type="file" id="theory-notes-input"></td>
+                </tr>
+                <tr>
+                    <td>Quiz</td>
+                    <td><input type="file" id="theory-quiz-input"></td>
+                </tr>
+                <tr>
+                    <td>Assignment</td>
+                    <td><input type="file" id="theory-assignment-input"></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td><input type="file" id="theory-other-input"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-buttons">
+            <button onclick="uploadSection('theory')">Upload</button>
+            <button onclick="updateSection('theory')">Update</button>
+            <button onclick="deleteSection('theory')">Delete</button>
+        </div>
+        <div id="theory-files-list" class="files-list"></div>
+    </section>
+
+    <!-- Practical Section -->
+    <section class="section-card">
+        <h2>Practical</h2>
+        <table class="file-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Upload File</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Notes</td>
+                    <td><input type="file" id="practical-notes-input"></td>
+                </tr>
+                <tr>
+                    <td>Quiz</td>
+                    <td><input type="file" id="practical-quiz-input"></td>
+                </tr>
+                <tr>
+                    <td>Assignment</td>
+                    <td><input type="file" id="practical-assignment-input"></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td><input type="file" id="practical-other-input"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-buttons">
+            <button onclick="uploadSection('practical')">Upload</button>
+            <button onclick="updateSection('practical')">Update</button>
+            <button onclick="deleteSection('practical')">Delete</button>
+        </div>
+        <div id="practical-files-list" class="files-list"></div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', ()=> {
+    const subject = localStorage.getItem('currentSubjectName');
+    if(!subject) alert('No subject selected!');
+    document.getElementById('subjectTitle').textContent = subject;
+    fetchAllFiles('theory');
+    fetchAllFiles('practical');
+
+    // Edit subject name
+    const editBtn = document.getElementById('editSubjectBtn');
+    editBtn.addEventListener('click', ()=>{
+        const currentName = localStorage.getItem('currentSubjectName');
+        const newName = prompt('Enter new subject name:', currentName);
+        if(newName && newName !== currentName){
+            fetch('/update-subject', {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({oldName: currentName, newName})
+            }).then(res=>res.json())
+            .then(data=>{
+                if(data.error) alert(data.error);
+                else {
+                    localStorage.setItem('currentSubjectName', newName);
+                    document.getElementById('subjectTitle').textContent = newName;
+                    fetchAllFiles('theory');
+                    fetchAllFiles('practical');
+                    alert('Subject name updated successfully!');
+                }
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>
