@@ -11,7 +11,11 @@ const PORT = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-pp.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+const crypto = require('crypto');
+const secretKey = crypto.randomBytes(64).toString('hex');
+console.log(secretKey);
 
 // ---------------------- Ensure temp folder ----------------------
 const tempDir = path.join(__dirname, 'temp');

@@ -1,321 +1,389 @@
-/* Reset & Base */
+/* -------------------- Global Reset -------------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f4f6f8;
-    color: #333;
+  background: #f5f7fb;
+  color: #333;
+  padding: 20px;
+  line-height: 1.5;
 }
 
-header {
-    background-color: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
+/* -------------------- Container -------------------- */
 .container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Add Semester Section */
-.add-section {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+/* -------------------- Headings -------------------- */
+h1, h2, h3 {
+  margin-bottom: 15px;
+  color: #1a237e;
 }
 
-.add-section h2 {
-    margin-bottom: 10px;
-    color: #1e3a8a;
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-.add-section input {
-    padding: 10px;
-    width: 60%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+/* -------------------- Inputs & Buttons -------------------- */
+input[type="text"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  width: 70%;
+  transition: 0.3s;
 }
 
-.add-section button {
-    padding: 10px 20px;
-    background-color: #1e3a8a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: #3949ab;
 }
 
-.add-section button:hover {
-    background-color: #3b82f6;
+button {
+  padding: 10px 16px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #3949ab;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
 }
 
-/* Semesters List */
-.semester-list h2 {
-    margin-bottom: 15px;
-    color: #1e3a8a;
+button:hover {
+  background: #1a237e;
 }
 
+button.delete-btn {
+  background: #e53935;
+}
+
+button.delete-btn:hover {
+  background: #b71c1c;
+}
+
+button.update-btn {
+  background: #00897b;
+}
+
+button.update-btn:hover {
+  background: #004d40;
+}
+
+/* -------------------- Semester Cards -------------------- */
 .semester-card {
-    background: #fff;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #fafafa;
+  transition: 0.3s;
 }
 
-.semester-info {
-    display: flex;
-    flex-direction: column;
+.semester-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.semester-info span {
-    margin-bottom: 5px;
-    font-weight: 500;
+.semester-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.semester-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #3949ab;
 }
 
 .semester-actions button {
-    margin-left: 5px;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: 0.3s;
+  margin-left: 6px;
 }
 
-.semester-actions .update-btn { background-color: #f59e0b; }
-.semester-actions .update-btn:hover { background-color: #facc15; }
-
-.semester-actions .delete-btn { background-color: #dc2626; }
-.semester-actions .delete-btn:hover { background-color: #ef4444; }
-
-.semester-actions .subject-btn { background-color: #1e3a8a; }
-.semester-actions .subject-btn:hover { background-color: #3b82f6; }
-
+/* -------------------- Subject Section -------------------- */
 .subject-input {
-    margin-top: 8px;
-    display: flex;
-    gap: 5px;
+  display: flex;
+  margin-bottom: 12px;
 }
 
 .subject-input input {
-    flex: 1;
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.subject-input button {
-    padding: 6px 10px;
-    background-color: #1e3a8a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.subject-input button:hover {
-    background-color: #3b82f6;
+  flex: 1;
 }
 
 .subject-list {
-    margin-top: 8px;
-    padding-left: 20px;
+  list-style: none;
+  padding-left: 15px;
 }
 
-.subject-list li {
-    margin-bottom: 5px;
-}
-/* ---------------------- Global ---------------------- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f6fa;
-    margin: 0;
-    padding: 0;
+.subject-item {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  background: #e8eaf6;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-header {
-    background: #1e3a8a;
-    color: white;
-    padding: 20px;
-    text-align: center;
+.subject-item:hover {
+  background: #c5cae9;
 }
 
-h1, h2, h4 {
-    margin: 0;
+/* -------------------- File Upload Section -------------------- */
+.file-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f1f3f6;
+  border-radius: 8px;
 }
 
-/* ---------------------- Container ---------------------- */
-.subject-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
-
-/* ---------------------- Sections ---------------------- */
-.section-card {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.section-card h2 {
-    color: #1e3a8a;
-    margin-bottom: 15px;
-}
-
-/* ---------------------- File Table ---------------------- */
-.file-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 10px;
-}
-
-.file-table th, .file-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-.file-table th {
-    background-color: #1e3a8a;
-    color: #fff;
-}
-
-.file-table input[type="file"] {
-    width: 90%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* ---------------------- Buttons ---------------------- */
-.section-buttons {
-    text-align: right;
-    margin-top: 10px;
-}
-
-.section-buttons button {
-    background-color: #1e3a8a;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    margin-left: 5px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.section-buttons button:hover {
-    background-color: #3b82f6;
-}
-
-/* ---------------------- Files List ---------------------- */
-.files-list {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.file-section h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #1a237e;
 }
 
 .file-item {
-    background: #f1f5f9;
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.file-item a {
-    text-decoration: none;
-    color: #1e3a8a;
-    font-weight: 500;
-}
-
-.file-item a:hover {
-    text-decoration: underline;
-}
-
-.file-meta {
-    font-size: 0.85rem;
-    color: #555;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .file-item input[type="checkbox"] {
-    transform: scale(1.2);
-}
-.main-header {
-  background-color: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin-right: 10px;
 }
 
-.main-header h1 {
-    margin: 0;
-    font-size: 24px;
-    cursor: pointer;
-    transition: 0.2s;
+.file-item a {
+  color: #3949ab;
+  text-decoration: none;
 }
 
-.main-header h1:hover {
-    color: #ffeb3b; /* highlight on hover */
-    text-decoration: underline;
+.file-item a:hover {
+  text-decoration: underline;
 }
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 600px) {
+  .subject-input {
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  button {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+/* -------------------- Global Reset -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+  padding: 30px;
+  line-height: 1.6;
+}
+
+/* -------------------- Container -------------------- */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* -------------------- Headings -------------------- */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2a2a72;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  margin: 20px 0 10px;
+  color: #3949ab;
+  font-size: 1.4rem;
+}
+
+/* -------------------- Input Bar -------------------- */
+.input-bar {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.input-bar input:focus {
+  border-color: #3949ab;
+}
+
+.input-bar button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #3949ab;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.input-bar button:hover {
+  background: #1a237e;
+}
+
+/* -------------------- Semester Cards -------------------- */
+.semester-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background: #fafbff;
+  transition: 0.3s;
+}
+
+.semester-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.semester-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.semester-name {
+  font-weight: 600;
+  font-size: 18px;
+  color: #2a2a72;
+}
+
+/* -------------------- Subject Section -------------------- */
+.subject-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.subject-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+.subject-input input:focus {
+  border-color: #3949ab;
+}
+
+.subject-input button {
+  padding: 10px 14px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subject-input button:hover {
+  background: #2e7d32;
+}
+
 .subject-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 0;
-    list-style: none;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
 }
 
-.subject-list li {
-    background-color: #f0f4f8;
-    border: 1px solid #d0d7de;
-    border-radius: 25px;
-    padding: 8px 15px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    transition: 0.2s;
-    cursor: pointer;
+.subject-item {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #e8eaf6;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.subject-list li:hover {
-    background-color: #2196F3;
-    color: white;
-    transform: scale(1.05);
+.subject-item:hover {
+  background: #c5cae9;
 }
 
-.subject-list li::after {
-    content: "▶";  /* arrow to indicate open */
-    margin-left: 8px;
-    font-size: 12px;
+/* -------------------- File Section -------------------- */
+.file-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9fc;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.file-section h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #3949ab;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.file-item input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.file-item a {
+  color: #3949ab;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.file-item a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 650px) {
+  .input-bar,
+  .subject-input {
+    flex-direction: column;
+  }
+
+  .input-bar button,
+  .subject-input button {
+    width: 100%;
+  }
 }

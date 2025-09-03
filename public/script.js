@@ -1,240 +1,219 @@
 // ---------------------- Utility ----------------------
-function showAlert(msg){
-    alert(msg);
-    console.log('Alert:', msg);
+function showAlert(msg) {
+  alert(msg);
+  console.log("Alert:", msg);
 }
 
-// ---------------------- Fetch Semesters ----------------------
-async function fetchSemesters(){
-    const container = document.getElementById('semestersContainer');
-    container.innerHTML = '';
-    const res = await fetch('/semesters');
-    const data = await res.json();
-    if(!data.semesters || data.semesters.length === 0){
-        container.innerHTML = '<p>No semesters found. Add one above.</p>';
-        return;
-    }
+// ---------------------- LocalStorage Helpers ----------------------
+function getSemesters() {
+  return JSON.parse(localStorage.getItem("semesters") || "[]");
+}
+function saveSemesters(data) {
+  localStorage.setItem("semesters", JSON.stringify(data));
+}
 
-    data.semesters.forEach(sem => {
-        const card = document.createElement('div');
+// ---------------------- Render Semesters ----------------------
+function renderSemesters() {
+  const container = document.getElementById("semesterList");
+  container.innerHTML = "";
+
+  const semesters = getSemesters();
+  if (semesters.length === 0) {
+    container.innerHTML = "<p>No semesters yet. Add one above.</p>";
+    return;
+  }
+
+  semesters.forEach(sem => {
+    const card = document.createElement("div");
+    card.className = "semester-card";
+
     card.innerHTML = `
-    <div class="semester-header">
+      <div class="semester-header">
         <span class="semester-name">${sem.name}</span>
         <div class="semester-actions">
-            <button class="update-btn" onclick="updateSemester(${sem.id},'${sem.name}')">Update</button>
-            <button class="delete-btn" onclick="deleteSemester(${sem.id})">Delete</button>
+          <button onclick="updateSemester(${sem.id}, '${sem.name}')">Update</button>
+          <button onclick="deleteSemester(${sem.id})">Delete</button>
         </div>
-    </div>
-    <div class="subject-input">
+      </div>
+      <div class="subject-input">
         <input type="text" id="subjectInput-${sem.id}" placeholder="Add subject">
         <button onclick="addSubject(${sem.id})">Add Subject</button>
-    </div>
-    <ul class="subject-list" id="subjectList-${sem.id}"></ul>
-`;
+      </div>
+      <ul class="subject-list" id="subjectList-${sem.id}"></ul>
+    `;
 
-        container.appendChild(card);
-        fetchSubjects(sem.id);
-    });
+    container.appendChild(card);
+    renderSubjects(sem.id);
+  });
 }
 
 // ---------------------- Add Semester ----------------------
-async function addSemester(){
-    const nameInput = document.getElementById('semesterName');
-    const name = nameInput.value.trim();
-    if(!name) return showAlert('Enter semester name!');
+function addSemester() {
+  const input = document.getElementById("semesterInput");
+  const name = input.value.trim();
+  if (!name) return showAlert("Enter semester name!");
 
-    const res = await fetch('/add-semester', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({name})
-    });
-    const data = await res.json();
-    if(data.error) return showAlert(data.error);
-    nameInput.value='';
-    fetchSemesters();
+  const semesters = getSemesters();
+  semesters.push({ id: Date.now(), name, subjects: [] });
+  saveSemesters(semesters);
+
+  input.value = "";
+  renderSemesters();
 }
 
-// ---------------------- Update Semester ----------------------
-async function updateSemester(id, oldName){
-    const newName = prompt('Enter new semester name:', oldName);
-    if(!newName) return;
-    const res = await fetch('/update-semester', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({id, name:newName})
-    });
-    const data = await res.json();
-    if(data.error) return showAlert(data.error);
-    fetchSemesters();
+// ---------------------- Update/Delete Semester ----------------------
+function updateSemester(id, oldName) {
+  const newName = prompt("Enter new semester name:", oldName);
+  if (!newName) return;
+  const semesters = getSemesters();
+  const sem = semesters.find(s => s.id === id);
+  if (sem) sem.name = newName;
+  saveSemesters(semesters);
+  renderSemesters();
 }
-
-// ---------------------- Delete Semester ----------------------
-async function deleteSemester(id){
-    if(!confirm('Are you sure to delete this semester?')) return;
-    const res = await fetch(`/delete-semester?id=${id}`, {method:'DELETE'});
-    const data = await res.json();
-    if(data.error) return showAlert(data.error);
-    fetchSemesters();
+function deleteSemester(id) {
+  if (!confirm("Are you sure to delete this semester?")) return;
+  let semesters = getSemesters();
+  semesters = semesters.filter(s => s.id !== id);
+  saveSemesters(semesters);
+  renderSemesters();
 }
 
 // ---------------------- Add Subject ----------------------
-async function addSubject(semesterId){
-    const input = document.getElementById(`subjectInput-${semesterId}`);
-    const name = input.value.trim();
-    if(!name) return showAlert('Enter subject name!');
-    const res = await fetch('/add-subject', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({name, semesterId})
-    });
-    const data = await res.json();
-    if(data.error) return showAlert(data.error);
-    input.value='';
-    fetchSubjects(semesterId);
+function addSubject(semesterId) {
+  const input = document.getElementById(`subjectInput-${semesterId}`);
+  const name = input.value.trim();
+  if (!name) return showAlert("Enter subject name!");
+
+  const semesters = getSemesters();
+  const sem = semesters.find(s => s.id === semesterId);
+  if (!sem) return;
+
+  sem.subjects.push({ id: Date.now(), name, files: { notes: [], quiz: [], assignment: [], other: [] } });
+  saveSemesters(semesters);
+
+  input.value = "";
+  renderSubjects(semesterId);
 }
 
-// ---------------------- Fetch Subjects ----------------------
-async function fetchSubjects(semesterId){
-    const ul = document.getElementById(`subjectList-${semesterId}`);
-    ul.innerHTML='';
-    const res = await fetch('/subjects');
-    const data = await res.json();
-    const subjects = data.subjects.filter(s=>s.semester_id===semesterId);
-    if(subjects.length===0){
-        ul.innerHTML='<li>No subjects added yet</li>';
-        return;
+// ---------------------- Render Subjects ----------------------
+function renderSubjects(semesterId) {
+  const ul = document.getElementById(`subjectList-${semesterId}`);
+  ul.innerHTML = "";
+
+  const semesters = getSemesters();
+  const sem = semesters.find(s => s.id === semesterId);
+  if (!sem || sem.subjects.length === 0) {
+    ul.innerHTML = "<li>No subjects yet</li>";
+    return;
+  }
+
+  sem.subjects.forEach(sub => {
+    const li = document.createElement("li");
+    li.className = "subject-item";
+    li.innerHTML = `
+      <div class="subject-header">
+        <span>${sub.name}</span>
+        <button onclick="toggleSubject(${semesterId}, ${sub.id})">Open</button>
+      </div>
+      <div class="files-box" id="files-${sub.id}" style="display:none;"></div>
+    `;
+    ul.appendChild(li);
+  });
+}
+
+// ---------------------- Toggle Subject (Show Files UI) ----------------------
+function toggleSubject(semesterId, subjectId) {
+  const box = document.getElementById(`files-${subjectId}`);
+  if (box.style.display === "none") {
+    box.style.display = "block";
+    renderFiles(semesterId, subjectId);
+  } else {
+    box.style.display = "none";
+  }
+}
+
+// ---------------------- Render Files ----------------------
+function renderFiles(semesterId, subjectId) {
+  const semesters = getSemesters();
+  const sem = semesters.find(s => s.id === semesterId);
+  const subject = sem.subjects.find(s => s.id === subjectId);
+
+  const box = document.getElementById(`files-${subjectId}`);
+  box.innerHTML = "";
+
+  ["notes", "quiz", "assignment", "other"].forEach(type => {
+    const section = document.createElement("div");
+    section.className = "file-section";
+    section.innerHTML = `
+      <h4>${type.toUpperCase()}</h4>
+      <input type="file" id="file-${subjectId}-${type}">
+      <button onclick="uploadFile(${semesterId}, ${subjectId}, '${type}')">Upload</button>
+      <div class="file-list" id="list-${subjectId}-${type}"></div>
+    `;
+    box.appendChild(section);
+
+    renderFileList(subject, subjectId, type);
+  });
+}
+
+// ---------------------- Upload File ----------------------
+function uploadFile(semesterId, subjectId, type) {
+  const input = document.getElementById(`file-${subjectId}-${type}`);
+  if (!input.files[0]) return showAlert("Choose a file first!");
+  const file = input.files[0];
+
+  const semesters = getSemesters();
+  const sem = semesters.find(s => s.id === semesterId);
+  const subject = sem.subjects.find(s => s.id === subjectId);
+
+  subject.files[type].push(file.name); // only save name
+  saveSemesters(semesters);
+
+  input.value = "";
+  renderFileList(subject, subjectId, type);
+}
+
+// ---------------------- Render File List ----------------------
+function renderFileList(subject, subjectId, type) {
+  const list = document.getElementById(`list-${subjectId}-${type}`);
+  list.innerHTML = "";
+  if (subject.files[type].length === 0) {
+    list.innerHTML = "<p>No files yet</p>";
+    return;
+  }
+
+  subject.files[type].forEach((f, idx) => {
+    const div = document.createElement("div");
+    div.className = "file-item";
+    div.innerHTML = `
+      <span>${f}</span>
+      <button onclick="deleteFile(${subjectId}, '${type}', ${idx})">Delete</button>
+    `;
+    list.appendChild(div);
+  });
+}
+
+// ---------------------- Delete File ----------------------
+function deleteFile(subjectId, type, index) {
+  const semesters = getSemesters();
+  semesters.forEach(sem => {
+    const subject = sem.subjects.find(s => s.id === subjectId);
+    if (subject) {
+      subject.files[type].splice(index, 1);
     }
-    subjects.forEach(s=>{
-        const li = document.createElement('li');
-        li.textContent = s.name;
-        li.className = 'subject-item';
-        li.onclick = ()=> openSubject(s.name);
-        ul.appendChild(li);
-    });
+  });
+  saveSemesters(semesters);
+
+  // refresh lists
+  semesters.forEach(sem => {
+    const subject = sem.subjects.find(s => s.id === subjectId);
+    if (subject) renderFileList(subject, subjectId, type);
+  });
 }
 
-// ---------------------- Open Subject ----------------------
-function openSubject(subjectName){
-    localStorage.setItem('currentSubjectName', subjectName);
-    window.location.href='subject.html';
-}
-
-// ---------------------- Fetch & Display Files ----------------------
-function fetchAllFiles(section){
-    const types = ['notes','quiz','assignment','other'];
-    const container = document.getElementById(`${section}-files-list`);
-    if(!container) return;
-    container.innerHTML='';
-
-    const subject = localStorage.getItem('currentSubjectName');
-    if(!subject) return;
-
-    types.forEach(type=>{
-        fetch(`/files?subject=${encodeURIComponent(subject)}&section=${section}&type=${type}`)
-        .then(res=>res.json())
-        .then(data=>{
-            const files = data.files||[];
-            const heading = document.createElement('h4');
-            heading.textContent = type.charAt(0).toUpperCase()+type.slice(1);
-            container.appendChild(heading);
-
-            if(files.length===0){
-                const p = document.createElement('p');
-                p.textContent='No files uploaded yet';
-                container.appendChild(p);
-            }
-
-            files.forEach(f=>{
-                const div = document.createElement('div');
-                div.className='file-item';
-               div.innerHTML = `
-    <input type="checkbox" value="${f.filename}" data-type="${type}">
-    <a href="/uploads/${subject}/${section}/${type}/${f.filename}" target="_blank">${f.filename}</a>
-`;
-                container.appendChild(div);
-            });
-        }).catch(err=>console.error(err));
-    });
-}
-
-// ---------------------- Upload Files ----------------------
-function uploadSection(section){
-    const types = ['notes','quiz','assignment','other'];
-    const subject = localStorage.getItem('currentSubjectName');
-    if(!subject) return showAlert('No subject selected');
-
-    types.forEach(type=>{
-        const input = document.getElementById(`${section}-${type}-input`);
-        if(!input || !input.files[0]) return;
-        const formData = new FormData();
-        formData.append('file', input.files[0]);
-        formData.append('subject', subject);
-        formData.append('section', section);
-        formData.append('type', type);
-
-        fetch('/upload', {method:'POST', body: formData})
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.error) return showAlert(data.error);
-            input.value='';
-            fetchAllFiles(section);
-        }).catch(err=>console.error(err));
-    });
-}
-
-// ---------------------- Update Files ----------------------
-function updateSection(section){
-    const checkboxes = document.querySelectorAll(`#${section}-files-list input[type="checkbox"]:checked`);
-    if(checkboxes.length===0) return showAlert('Select file(s) to update');
-    const subject = localStorage.getItem('currentSubjectName');
-    if(!subject) return;
-
-    checkboxes.forEach(cb=>{
-        const type = cb.dataset.type;
-        const filename = cb.value;
-
-        const input = document.createElement('input');
-        input.type='file';
-        input.onchange = e=>{
-            const file = e.target.files[0];
-            if(!file) return;
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('subject', subject);
-            formData.append('section', section);
-            formData.append('type', type);
-            formData.append('update', true);
-            formData.append('filename', filename);
-
-            fetch('/upload', {method:'POST', body: formData})
-            .then(()=>fetchAllFiles(section))
-            .catch(err=>console.error(err));
-        };
-        input.click();
-    });
-}
-
-// ---------------------- Delete Files ----------------------
-function deleteSection(section){
-    const checkboxes = document.querySelectorAll(`#${section}-files-list input[type="checkbox"]:checked`);
-    if(checkboxes.length===0) return showAlert('Select file(s) to delete');
-    const subject = localStorage.getItem('currentSubjectName');
-    if(!subject) return;
-    if(!confirm('Are you sure you want to delete selected files?')) return;
-
-    checkboxes.forEach(cb=>{
-        const type = cb.dataset.type;
-        const filename = cb.value;
-        fetch('/delete-file',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({subject, section, type, filename})
-        }).then(()=>fetchAllFiles(section))
-        .catch(err=>console.error(err));
-    });
-}
-function goHome() {
-    window.location.href = 'index.html'; // your home page
-}
 // ---------------------- Initialize ----------------------
-window.addEventListener('DOMContentLoaded', fetchSemesters);
+document.addEventListener("DOMContentLoaded", () => {
+  renderSemesters();
+  document.getElementById("addSemester").addEventListener("click", addSemester);
+});
